@@ -8,11 +8,3 @@ For production use or to ensure better security, it's highly recommended to inco
 - Using **prepared statements** to prevent SQL injection.
 - Considering a web framework like **Laravel** for more secure and scalable solutions.
 
-### Video Tutorial
-
-For more details on using prepared statements and input validation, you can check out my video tutorial here:
-[Watch the video](https://youtu.be/mQhu19VmOPo)
-
-You can watch the full tutorial on how to set up a login form with database connection on my YouTube channel:  
-[Francis Tech](https://www.youtube.com/@francis_tech)
-
