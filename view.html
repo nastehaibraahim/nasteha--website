@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            background-color: #f4f4f4;
+            color: black;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+            position: fixed;
+        }
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 15px 0;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+        .sidebar ul li a:hover {
+            text-decoration: underline;
+        }
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            flex-grow: 1;
+        }
+        .header {
+            background-color: #444;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .courses {
+            margin-top: 20px;
+        }
+        .course {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #fff;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .course-content {
+            flex-grow: 1;
+            margin-right: 20px;
+        }
+        .course-title {
+            font-size: 1.2em;
+            margin: 0 0 5px;
+            color: #333;
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
+        }
+        .view-button, .download-button {
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .view-button {
+            background-color: #28a745;
+            color: white;
+        }
+        .view-button:hover {
+            background-color: #218838;
+        }
+        .download-button {
+            background-color: #007bff;
+            color: white;
+        }
+        .download-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Course View Styles */
+        .course-view {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .course-view h1 {
+            margin-top: 0;
+        }
+        .lesson {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .lesson h3 {
+            margin-top: 0;
+        }
+        .lesson p {
+            font-size: 1rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Dashboard</h2>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">My Courses</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content (Dashboard) -->
+    <div class="main-content">
+        <div class="header">
+            <h1>Welcome to Your Dashboard</h1>
+        </div>
+        <div class="courses">
+            <h2>Your Courses</h2>
+            <!-- Example Course -->
+            <div class="course">
+                <div class="course-content">
+                    <h3 class="course-title">Course Title 1</h3>
+                    <p>Learn about topic 1 with this comprehensive course.</p>
+                </div>
+                <div class="button-group">
+                    <a href="#course1" class="view-button">View</a>
+                    <a href="course-material1.pdf" class="download-button" download>Download</a>
+                </div>
+            </div>
+            <!-- Another Example Course -->
+            <div class="course">
+                <div class="course-content">
+                    <h3 class="course-title">Course Title 2</h3>
+                    <p>Explore topic 2 in depth with expert instruction.</p>
+                </div>
+                <div class="button-group">
+                    <a href="#course2" class="view-button">View</a>
+                    <a href="course-material2.pdf" class="download-button" download>Download</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Course View Section (Appears when View is clicked) -->
+    <div id="course1" class="course-view">
+        <h1>Course Title 1 - Learn about Topic 1</h1>
+        <div class="lesson">
+            <h3>Lesson 1: Introduction to Topic 1</h3>
+            <p>This lesson introduces the key concepts of Topic 1.</p>
+        </div>
+        <div class="lesson">
+            <h3>Lesson 2: Deep Dive into Topic 1</h3>
+            <p>In this lesson, we explore Topic 1 in more depth.</p>
+        </div>
+    </div>
+
+    <div id="course2" class="course-view">
+        <h1>Course Title 2 - Explore Topic 2</h1>
+        <div class="lesson">
+            <h3>Lesson 1: Introduction to Topic 2</h3>
+            <p>This lesson introduces the key concepts of Topic 2.</p>
+        </div>
+        <div class="lesson">
+            <h3>Lesson 2: Deep Dive into Topic 2</h3>
+            <p>In this lesson, we explore Topic 2 in more depth.</p>
+        </div>
+    </div>
+</body>
+</html>

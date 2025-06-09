@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Star Exam - E-Learning Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a1a2e;
+            --secondary-color: #4e4e69;
+            --background-color: #f4f4f9;
+            --card-background-color: #f9f9f9;
+            --text-color: #333;
+            --white: #fff;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+            --font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 20px 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav ul li {
+            padding: 5px 10px;
+            transition: background 0.3s;
+        }
+
+        nav ul li:hover {
+            background-color: var(--secondary-color);
+            border-radius: 5px;
+        }
+
+        .exam-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px var(--shadow-color);
+        }
+
+        .exam-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .exam-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .exam-header p {
+            font-size: 1rem;
+            color: var(--primary-color);
+        }
+
+        .question-card {
+            background: var(--card-background-color);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 1px 3px var(--shadow-color);
+        }
+
+        .question-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .question-card p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .options-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .options-list li {
+            margin-bottom: 10px;
+        }
+
+        .options-list input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .timer {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+        }
+
+        .exam-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .exam-footer button {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .exam-footer button:hover {
+            background: var(--secondary-color);
+        }
+
+        .exam-footer .submit-btn {
+            background: #e74c3c;
+        }
+
+        .exam-footer .submit-btn:hover {
+            background: #c0392b;
+        }
+
+        /* Result and certificate section */
+        .result-container {
+            display: none;
+            text-align: center;
+        }
+
+        .result-container h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .certificate {
+            margin-top: 20px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 15px;
+            font-size: 1.2rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .certificate:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .certificate-link {
+            display: none;
+        }
+
+        .certificate-link a {
+            color: var(--white);
+            font-weight: bold;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">E-Learn</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="exam-container">
+        <div class="exam-header">
+            <h1>Star Exam: Course 1</h1>
+            <p>Time Remaining: <span id="timer">00:30</span> minutes</p>
+        </div>
+
+        <!-- Question 1 -->
+        <div class="question-card">
+            <h3>Question 1: What is the capital of France?</h3>
+            <p>Select the correct option:</p>
+            <ul class="options-list">
+                <li><input type="radio" id="q1-option1" name="q1" value="Paris"><label for="q1-option1">Paris</label></li>
+                <li><input type="radio" id="q1-option2" name="q1" value="London"><label for="q1-option2">London</label></li>
+                <li><input type="radio" id="q1-option3" name="q1" value="Berlin"><label for="q1-option3">Berlin</label></li>
+                <li><input type="radio" id="q1-option4" name="q1" value="Madrid"><label for="q1-option4">Madrid</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question-card">
+            <h3>Question 2: What is the largest planet in our solar system?</h3>
+            <p>Select the correct option:</p>
+            <ul class="options-list">
+                <li><input type="radio" id="q2-option1" name="q2" value="Earth"><label for="q2-option1">Earth</label></li>
+                <li><input type="radio" id="q2-option2" name="q2" value="Jupiter"><label for="q2-option2">Jupiter</label></li>
+                <li><input type="radio" id="q2-option3" name="q2" value="Saturn"><label for="q2-option3">Saturn</label></li>
+                <li><input type="radio" id="q2-option4" name="q2" value="Mars"><label for="q2-option4">Mars</label></li>
+            </ul>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question-card">
+            <h3>Question 3: What is the chemical symbol for water?</h3>
+            <p>Select the correct option:</p>
+            <ul class="options-list">
+                <li><input type="radio" id="q3-option1" name="q3" value="O2"><label for="q3-option1">O2</label></li>
+                <li><input type="radio" id="q3-option2" name="q3" value="H2O"><label for="q3-option2">H2O</label></li>
+                <li><input type="radio" id="q3-option3" name="q3" value="CO2"><label for="q3-option3">CO2</label></li>
+                <li><input type="radio" id="q3-option4" name="q3" value="NaCl"><label for="q3-option4">NaCl</label></li>
+            </ul>
+        </div>
+
+        <!-- Footer with Submit Button -->
+        <div class="exam-footer">
+            <button type="button" class="submit-btn" onclick="submitExam()">Submit Exam</button>
+        </div>
+    </div>
+
+    <!-- Result and Certificate Section -->
+    <div class="result-container" id="result-container">
+        <h2>Exam Result</h2>
+        <p>Your score: <span id="score">0</span>/3</p>
+        <p>Average Score: <span id="averageScore">0</span>%</p>
+        <p>Grade: <span id="grade">F</span></p>
+        <button class="certificate" id="certificateBtn" onclick="downloadCertificate()">Download Certificate</button>
+        <div class="certificate-link" id="certificateLink" style="display: none;">
+            <a href="book.pdf" download>Click to Download</a>
+        </div>
+    </div>
+
+    <script>
+        let correctAnswers = {
+            q1: 'Paris',
+            q2: 'Jupiter',
+            q3: 'H2O'
+        };
+
+        function submitExam() {
+            let score = 0;
+
+            // Check the answers for each question
+            if (document.querySelector('input[name="q1"]:checked')?.value === correctAnswers.q1) {
+                score++;
+            }
+            if (document.querySelector('input[name="q2"]:checked')?.value === correctAnswers.q2) {
+                score++;
+            }
+            if (document.querySelector('input[name="q3"]:checked')?.value === correctAnswers.q3) {
+                score++;
+            }
+
+            // Calculate average score
+            let averageScore = (score / 3) * 100;
+
+            // Determine grade based on average score
+            let grade = 'F';
+            if (averageScore >= 90) {
+                grade = 'A';
+            } else if (averageScore >= 80) {
+                grade = 'B';
+            } else if (averageScore >= 70) {
+                grade = 'C';
+            } else if (averageScore >= 60) {
+                grade = 'D';
+            }
+
+            // Display the result, score, average score, and grade
+            document.getElementById('score').textContent = score;
+            document.getElementById('averageScore').textContent = averageScore.toFixed(2);
+            document.getElementById('grade').textContent = grade;
+            document.getElementById('result-container').style.display = 'block';
+            document.querySelector('.exam-container').style.display = 'none';
+
+            // Show certificate link for passing grade
+            if (score === 3) {
+                document.getElementById('certificateLink').style.display = 'block';
+            }
+        }
+
+        function downloadCertificate() {
+            const certificateLink = document.getElementById('certificateDownloadLink');
+            if (certificateLink.href) {
+                certificateLink.click();
+            }
+        }
+    </script>
+</body>
+</html>
